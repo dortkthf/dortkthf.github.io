@@ -10,15 +10,27 @@
 
 <h1>Apps</h1>
 
-<!-- One entry per app. Each links to its own policy page under a folder of the same name. -->
+<!--
+  One folder per app, one policy per app. A policy has to describe what that app actually does, and
+  these two do not do the same things: ONE MOVE carries AdMob and in-app purchases, Mind Way uses no
+  network at all. They are separate documents for that reason.
+
+  ONE MOVE's page is generated from ../privacy.js, which holds the eighteen translations once and
+  takes the app name and its ads/iap flags as configuration -- so an app whose data handling matches
+  those sections costs one small file. Mind Way's page is standalone, because its data handling does
+  not match them; sharing the file would have meant a policy that says things about it that are not
+  true.
+-->
 <ul>
-  <li>
-    ONE MOVE <span class="meta">com.billionaire.onemove</span><br />
-    <a href="one-move/privacy.html">Privacy Policy / 개인정보처리방침</a>
-  </li>
+  <li>ONE MOVE <span class="meta">(com.billionaire.onemove)</span>
+      &mdash; <a href="one-move/privacy.html">Privacy Policy</a></li>
+  <li>Mind Way <span class="meta">(com.mindway.app)</span>
+      &mdash; <a href="mindway/privacy.html">Privacy Policy</a></li>
 </ul>
 
-<p class="meta">Contact: <a href="mailto:dortkthf@gmail.com">dortkthf@gmail.com</a></p>
+<footer>
+  <p class="meta">Contact: <a href="mailto:dortkthf@gmail.com">dortkthf@gmail.com</a></p>
+</footer>
 
 </body>
 </html>
