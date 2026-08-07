@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ONE MOVE Privacy Policy</title>
+<link rel="stylesheet" href="../privacy.css" />
+</head>
+<body>
+
+<div class="langbar">
+  <select id="lang" aria-label="Language"></select>
+</div>
+<main id="content"></main>
+
+<!--
+  The whole per-app configuration. `ads` stays true while the AdMob SDK ships in the app: the
+  interstitials are switched off in the current build, but the SDK is still bundled and the switch is
+  meant to be flipped back, and a policy that under-discloses is the worse mistake of the two.
+-->
+<script>
+  window.APP = { name: 'ONE MOVE', id: 'com.billionaire.onemove', ads: true, iap: true };
+</script>
+<script src="../privacy.js"></script>
+
+</body>
+</html>
