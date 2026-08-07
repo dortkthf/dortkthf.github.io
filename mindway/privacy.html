@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mind Way Privacy Policy</title>
+<style>
+  body { font-family: -apple-system, "Segoe UI", "Malgun Gothic", sans-serif; max-width: 760px;
+         margin: 0 auto; padding: 24px 16px 64px; line-height: 1.7; color: #222; }
+  h1 { font-size: 1.5em; margin-top: 1.6em; } h2 { font-size: 1.12em; margin-top: 1.8em; }
+  .langbar { display: flex; justify-content: flex-end; }
+  select { font: inherit; padding: 6px 10px; border-radius: 8px; border: 1px solid #bbb;
+           background: #fff; color: inherit; }
+  a { color: #0b62c4; }
+  @media (prefers-color-scheme: dark) {
+    body { background: #111; color: #ddd; }
+    select { background: #1c1c1c; color: #ddd; border-color: #444; }
+    a { color: #6db3ff; }
+  }
+</style>
+</head>
+<body>
+
+<div class="langbar">
+  <select id="lang" aria-label="Language"></select>
+</div>
+<main id="content"></main>
+
+<script>
+/*
+  Mind Way 개인정보처리방침.
+
+  형제 앱(ONE MOVE)의 같은 페이지와 형식은 같지만 **내용은 공유하지 않는다.**
+  개인정보처리방침은 그 앱이 실제로 다루는 데이터를 적어야 하는데 두 앱이
+  전혀 다르다 — ONE MOVE 는 AdMob 광고와 인앱결제가 있고, Mind Way 는
+  네트워크를 쓰지 않는다. 남의 앱 방침을 그대로 쓰면 '하지도 않는 수집'을
+  선언하는 셈이 되고, 앱 이름도 틀린다.
+
+  ⚠ 나중에 광고를 켜면(MonetizationProvider.enabled = true) 이 문서도 함께
+    고쳐야 한다. 최소한 다음이 들어가야 한다:
+      · Google AdMob 으로 광고를 게재한다는 사실
+      · 광고 ID(AAID)·대략적 위치·기기 정보가 구글로 전달된다는 사실
+      · 구글 광고 정책 링크와 광고 ID 재설정 안내
+      · 인앱결제(광고 제거)는 Google Play 가 처리하며 결제 정보를 앱이
+        보지 않는다는 사실
+    형제 앱의 privacy.html 에 그 문단들이 그대로 있으니 가져다 쓰면 된다.
+
+  언어는 앱이 지원하는 10 개와 같게 맞췄다.
+*/
+const MAIL = 'dortkthf@gmail.com';
+const mail = `<a href="mailto:${MAIL}">${MAIL}</a>`;
+
+/* 로케일마다: name(드롭다운에 쓸 자기 언어 이름), dir, title, date, intro, s = [[제목, 본문], ...] */
+const L = {
+
+en: { name: 'English', title: 'Mind Way Privacy Policy', date: 'Effective date: August 7, 2026',
+  intro: 'Mind Way ("the app") respects your privacy. This policy explains what information the app handles and how. In short: the app works entirely on your device and sends nothing anywhere.',
+  s: [
+  ['1. Information we collect', 'None. The app requires no account and no sign-in, and it does not collect personally identifiable information such as your name, email address, or phone number.'],
+  ['2. Data stored on your device', 'Your meditation records, practice journals, language, theme and other settings are saved only on your device. They are never transmitted to us or to any third party. We cannot read them.'],
+  ['3. Network and permissions', 'The app does not communicate over the network. It contains no analytics and no advertising, and it requests no permissions beyond keeping the screen awake while audio plays.'],
+  ['4. Children’s privacy', 'The app is not directed primarily at children and does not knowingly collect personal information from children.'],
+  ['5. Data deletion', 'All saved data lives on your device. Uninstalling the app, or clearing its data in your device settings, removes it completely and permanently. There is nothing on our side to delete.'],
+  ['6. Contact', `Privacy inquiries: ${mail}`],
+  ['7. Changes', 'Any changes to this policy will be posted on this page with a new effective date.'] ] },
+
+ko: { name: '한국어', title: 'Mind Way(마음의 길) 개인정보처리방침', date: '시행일: 2026년 8월 7일',
+  intro: 'Mind Way(이하 "앱")는 이용자의 개인정보를 존중합니다. 이 방침은 앱이 어떤 정보를 다루는지 설명합니다. 요약하면, 앱은 전적으로 기기 안에서만 동작하며 어디로도 정보를 보내지 않습니다.',
+  s: [
+  ['1. 수집하는 정보', '없습니다. 앱은 회원가입과 로그인을 요구하지 않으며, 이름·이메일·전화번호 같은 개인 식별 정보를 수집하지 않습니다.'],
+  ['2. 기기에 저장되는 정보', '명상 기록, 수행 일지, 언어·테마 등 설정은 오직 이용자의 기기에만 저장됩니다. 개발자를 포함한 누구에게도 전송되지 않으며, 개발자는 그 내용을 볼 수 없습니다.'],
+  ['3. 네트워크와 권한', '앱은 네트워크 통신을 하지 않습니다. 분석 도구도 광고도 들어 있지 않으며, 오디오 재생 중 화면이 꺼지지 않게 하는 것 외에는 어떤 권한도 요구하지 않습니다.'],
+  ['4. 아동의 개인정보', '앱은 아동을 주 대상으로 하지 않으며, 아동의 개인정보를 알면서 수집하지 않습니다.'],
+  ['5. 데이터 삭제', '모든 저장 데이터는 기기 안에 있습니다. 앱을 삭제하거나 기기 설정에서 앱 데이터를 지우면 완전히, 영구적으로 사라집니다. 개발자 쪽에는 지울 것이 없습니다.'],
+  ['6. 문의', `개인정보 관련 문의: ${mail}`],
+  ['7. 변경', '이 방침이 변경되면 새 시행일과 함께 이 페이지에 게시합니다.'] ] },
+
+ja: { name: '日本語', title: 'Mind Way プライバシーポリシー', date: '施行日: 2026年8月7日',
+  intro: 'Mind Way（以下「本アプリ」）は利用者のプライバシーを尊重します。本ポリシーは本アプリが扱う情報について説明します。要約すると、本アプリは端末内でのみ動作し、いかなる情報も外部に送信しません。',
+  s: [
+  ['1. 収集する情報', 'ありません。本アプリはアカウント登録やログインを必要とせず、氏名・メールアドレス・電話番号などの個人を特定できる情報を収集しません。'],
+  ['2. 端末に保存される情報', '瞑想の記録、修行日誌、言語やテーマなどの設定は利用者の端末にのみ保存されます。外部に送信されることはなく、開発者が内容を見ることもできません。'],
+  ['3. ネットワークと権限', '本アプリはネットワーク通信を行いません。解析ツールも広告も含まれておらず、音声再生中に画面を点灯し続ける以外の権限を要求しません。'],
+  ['4. 子どものプライバシー', '本アプリは主に子どもを対象としておらず、子どもの個人情報を故意に収集することはありません。'],
+  ['5. データの削除', 'すべての保存データは端末内にあります。アプリを削除するか、端末の設定でアプリのデータを消去すると完全かつ永久に削除されます。開発者側に削除すべきものはありません。'],
+  ['6. お問い合わせ', `プライバシーに関するお問い合わせ: ${mail}`],
+  ['7. 変更', '本ポリシーを変更した場合は、新しい施行日とともにこのページに掲載します。'] ] },
+
+zh: { name: '中文', title: 'Mind Way 隐私政策', date: '生效日期：2026年8月7日',
+  intro: 'Mind Way（以下称"本应用"）尊重您的隐私。本政策说明本应用如何处理信息。简而言之：本应用完全在您的设备上运行，不会向任何地方发送数据。',
+  s: [
+  ['1. 我们收集的信息', '没有。本应用不需要账号或登录，也不收集姓名、电子邮件、电话号码等可识别个人身份的信息。'],
+  ['2. 存储在您设备上的数据', '您的冥想记录、修行日记、语言与主题等设置仅保存在您的设备上，不会传输给我们或任何第三方，我们无法读取。'],
+  ['3. 网络与权限', '本应用不进行网络通信，不含分析工具与广告，除在播放音频时保持屏幕常亮外不请求任何权限。'],
+  ['4. 儿童隐私', '本应用并非主要面向儿童，也不会在知情的情况下收集儿童的个人信息。'],
+  ['5. 数据删除', '所有已保存的数据都在您的设备上。卸载应用或在设备设置中清除应用数据即可将其完全永久删除。我们这边没有任何数据需要删除。'],
+  ['6. 联系方式', `隐私相关咨询：${mail}`],
+  ['7. 变更', '本政策如有变更，将连同新的生效日期发布在本页面。'] ] },
+
+es: { name: 'Español', title: 'Política de Privacidad de Mind Way', date: 'Fecha de entrada en vigor: 7 de agosto de 2026',
+  intro: 'Mind Way ("la aplicación") respeta su privacidad. Esta política explica qué información maneja la aplicación. En resumen: funciona por completo en su dispositivo y no envía nada a ninguna parte.',
+  s: [
+  ['1. Información que recopilamos', 'Ninguna. La aplicación no requiere cuenta ni inicio de sesión y no recopila información de identificación personal como su nombre, correo electrónico o número de teléfono.'],
+  ['2. Datos guardados en su dispositivo', 'Sus registros de meditación, diarios de práctica, idioma, tema y demás ajustes se guardan únicamente en su dispositivo. Nunca se transmiten a nosotros ni a terceros, y no podemos leerlos.'],
+  ['3. Red y permisos', 'La aplicación no se comunica por red. No contiene análisis ni publicidad y no solicita permisos más allá de mantener la pantalla encendida durante la reproducción de audio.'],
+  ['4. Privacidad de los menores', 'La aplicación no está dirigida principalmente a menores y no recopila conscientemente información personal de ellos.'],
+  ['5. Eliminación de datos', 'Todos los datos guardados residen en su dispositivo. Desinstalar la aplicación o borrar sus datos en los ajustes del dispositivo los elimina de forma completa y permanente. No hay nada que borrar por nuestra parte.'],
+  ['6. Contacto', `Consultas sobre privacidad: ${mail}`],
+  ['7. Cambios', 'Cualquier cambio en esta política se publicará en esta página con una nueva fecha de entrada en vigor.'] ] },
+
+it: { name: 'Italiano', title: 'Informativa sulla Privacy di Mind Way', date: 'Data di entrata in vigore: 7 agosto 2026',
+  intro: 'Mind Way ("l\'app") rispetta la tua privacy. Questa informativa spiega quali informazioni l\'app tratta. In sintesi: funziona interamente sul tuo dispositivo e non invia nulla da nessuna parte.',
+  s: [
+  ['1. Informazioni che raccogliamo', 'Nessuna. L\'app non richiede account né accesso e non raccoglie informazioni personali identificabili come nome, indirizzo e-mail o numero di telefono.'],
+  ['2. Dati salvati sul dispositivo', 'I tuoi registri di meditazione, i diari di pratica, la lingua, il tema e le altre impostazioni sono salvati solo sul tuo dispositivo. Non vengono mai trasmessi a noi né a terzi e non possiamo leggerli.'],
+  ['3. Rete e autorizzazioni', 'L\'app non comunica in rete. Non contiene strumenti di analisi né pubblicità e non richiede autorizzazioni oltre a mantenere lo schermo acceso durante la riproduzione audio.'],
+  ['4. Privacy dei minori', 'L\'app non è rivolta principalmente ai minori e non raccoglie consapevolmente informazioni personali da loro.'],
+  ['5. Cancellazione dei dati', 'Tutti i dati salvati si trovano sul tuo dispositivo. Disinstallare l\'app o cancellarne i dati nelle impostazioni del dispositivo li rimuove in modo completo e permanente. Da parte nostra non c\'è nulla da cancellare.'],
+  ['6. Contatti', `Richieste sulla privacy: ${mail}`],
+  ['7. Modifiche', 'Eventuali modifiche a questa informativa saranno pubblicate su questa pagina con una nuova data di entrata in vigore.'] ] },
+
+fr: { name: 'Français', title: 'Politique de Confidentialité de Mind Way', date: 'Date d\'entrée en vigueur : 7 août 2026',
+  intro: 'Mind Way (« l\'application ») respecte votre vie privée. Cette politique explique quelles informations l\'application traite. En résumé : elle fonctionne entièrement sur votre appareil et n\'envoie rien nulle part.',
+  s: [
+  ['1. Informations que nous collectons', 'Aucune. L\'application ne nécessite ni compte ni connexion et ne collecte aucune information permettant de vous identifier, comme votre nom, votre adresse e-mail ou votre numéro de téléphone.'],
+  ['2. Données enregistrées sur votre appareil', 'Vos historiques de méditation, journaux de pratique, langue, thème et autres réglages sont enregistrés uniquement sur votre appareil. Ils ne nous sont jamais transmis, ni à des tiers, et nous ne pouvons pas les lire.'],
+  ['3. Réseau et autorisations', 'L\'application ne communique pas par le réseau. Elle ne contient ni outil d\'analyse ni publicité et ne demande aucune autorisation au-delà du maintien de l\'écran allumé pendant la lecture audio.'],
+  ['4. Vie privée des enfants', 'L\'application ne s\'adresse pas principalement aux enfants et ne collecte pas sciemment d\'informations personnelles les concernant.'],
+  ['5. Suppression des données', 'Toutes les données enregistrées se trouvent sur votre appareil. Désinstaller l\'application ou effacer ses données dans les réglages de l\'appareil les supprime totalement et définitivement. Il n\'y a rien à supprimer de notre côté.'],
+  ['6. Contact', `Questions relatives à la confidentialité : ${mail}`],
+  ['7. Modifications', 'Toute modification de cette politique sera publiée sur cette page avec une nouvelle date d\'entrée en vigueur.'] ] },
+
+hi: { name: 'हिन्दी', title: 'Mind Way गोपनीयता नीति', date: 'प्रभावी तिथि: 7 अगस्त 2026',
+  intro: 'Mind Way ("ऐप") आपकी गोपनीयता का सम्मान करता है। यह नीति बताती है कि ऐप किस जानकारी को संभालता है। संक्षेप में: ऐप पूरी तरह आपके डिवाइस पर चलता है और कहीं कुछ नहीं भेजता।',
+  s: [
+  ['1. हम जो जानकारी एकत्र करते हैं', 'कोई नहीं। ऐप को किसी खाते या साइन-इन की आवश्यकता नहीं है और यह आपका नाम, ईमेल या फ़ोन नंबर जैसी व्यक्तिगत पहचान वाली जानकारी एकत्र नहीं करता।'],
+  ['2. आपके डिवाइस पर सहेजा गया डेटा', 'आपके ध्यान रिकॉर्ड, अभ्यास डायरी, भाषा, थीम और अन्य सेटिंग्स केवल आपके डिवाइस पर सहेजी जाती हैं। ये कभी हमें या किसी तीसरे पक्ष को नहीं भेजी जातीं और हम इन्हें पढ़ नहीं सकते।'],
+  ['3. नेटवर्क और अनुमतियाँ', 'ऐप नेटवर्क पर संचार नहीं करता। इसमें कोई एनालिटिक्स या विज्ञापन नहीं है, और ऑडियो चलने के दौरान स्क्रीन चालू रखने के अलावा यह कोई अनुमति नहीं माँगता।'],
+  ['4. बच्चों की गोपनीयता', 'यह ऐप मुख्य रूप से बच्चों के लिए नहीं है और जानबूझकर बच्चों से व्यक्तिगत जानकारी एकत्र नहीं करता।'],
+  ['5. डेटा हटाना', 'सारा सहेजा गया डेटा आपके डिवाइस पर है। ऐप अनइंस्टॉल करने या डिवाइस सेटिंग्स में उसका डेटा साफ़ करने से वह पूरी तरह और स्थायी रूप से हट जाता है। हमारी ओर से हटाने को कुछ नहीं है।'],
+  ['6. संपर्क', `गोपनीयता संबंधी प्रश्न: ${mail}`],
+  ['7. परिवर्तन', 'इस नीति में किए गए किसी भी परिवर्तन को नई प्रभावी तिथि के साथ इसी पृष्ठ पर प्रकाशित किया जाएगा।'] ] },
+
+ar: { name: 'العربية', dir: 'rtl', title: 'سياسة خصوصية Mind Way', date: 'تاريخ السريان: ٧ أغسطس ٢٠٢٦',
+  intro: 'يحترم تطبيق Mind Way ("التطبيق") خصوصيتك. توضّح هذه السياسة المعلومات التي يتعامل معها التطبيق. باختصار: يعمل التطبيق بالكامل على جهازك ولا يرسل أي شيء إلى أي جهة.',
+  s: [
+  ['١. المعلومات التي نجمعها', 'لا شيء. لا يتطلب التطبيق حسابًا ولا تسجيل دخول، ولا يجمع معلومات تعريف شخصية مثل اسمك أو بريدك الإلكتروني أو رقم هاتفك.'],
+  ['٢. البيانات المحفوظة على جهازك', 'تُحفظ سجلات التأمل ودفاتر الممارسة واللغة والمظهر وسائر الإعدادات على جهازك فقط. ولا تُنقل إلينا ولا إلى أي طرف ثالث، ولا يمكننا الاطلاع عليها.'],
+  ['٣. الشبكة والأذونات', 'لا يتصل التطبيق بالشبكة. ولا يحتوي على أدوات تحليل ولا إعلانات، ولا يطلب أي أذونات عدا إبقاء الشاشة مضاءة أثناء تشغيل الصوت.'],
+  ['٤. خصوصية الأطفال', 'التطبيق ليس موجّهًا بشكل أساسي إلى الأطفال، ولا يجمع عن علم معلومات شخصية منهم.'],
+  ['٥. حذف البيانات', 'جميع البيانات المحفوظة موجودة على جهازك. إلغاء تثبيت التطبيق أو مسح بياناته من إعدادات الجهاز يحذفها نهائيًا وبالكامل. ولا يوجد لدينا ما يُحذف.'],
+  ['٦. التواصل', `استفسارات الخصوصية: ${mail}`],
+  ['٧. التغييرات', 'سيُنشر أي تغيير على هذه السياسة في هذه الصفحة مع تاريخ سريان جديد.'] ] },
+
+th: { name: 'ไทย', title: 'นโยบายความเป็นส่วนตัวของ Mind Way', date: 'วันที่มีผลบังคับใช้: 7 สิงหาคม 2569',
+  intro: 'Mind Way ("แอป") เคารพความเป็นส่วนตัวของคุณ นโยบายนี้อธิบายว่าแอปจัดการข้อมูลใดบ้าง โดยสรุป: แอปทำงานบนอุปกรณ์ของคุณทั้งหมดและไม่ส่งข้อมูลไปที่ใดเลย',
+  s: [
+  ['1. ข้อมูลที่เราเก็บรวบรวม', 'ไม่มี แอปไม่ต้องใช้บัญชีหรือการลงชื่อเข้าใช้ และไม่เก็บข้อมูลที่ระบุตัวบุคคลได้ เช่น ชื่อ อีเมล หรือหมายเลขโทรศัพท์'],
+  ['2. ข้อมูลที่บันทึกบนอุปกรณ์ของคุณ', 'บันทึกการทำสมาธิ ไดอารี่การปฏิบัติ ภาษา ธีม และการตั้งค่าอื่น ๆ จะถูกบันทึกไว้บนอุปกรณ์ของคุณเท่านั้น ไม่เคยส่งมาให้เราหรือบุคคลที่สาม และเราไม่สามารถอ่านได้'],
+  ['3. เครือข่ายและสิทธิ์', 'แอปไม่มีการสื่อสารผ่านเครือข่าย ไม่มีเครื่องมือวิเคราะห์และไม่มีโฆษณา และไม่ขอสิทธิ์ใด ๆ นอกจากการเปิดหน้าจอค้างไว้ขณะเล่นเสียง'],
+  ['4. ความเป็นส่วนตัวของเด็ก', 'แอปไม่ได้มุ่งเป้าไปที่เด็กเป็นหลัก และไม่เก็บข้อมูลส่วนบุคคลจากเด็กโดยเจตนา'],
+  ['5. การลบข้อมูล', 'ข้อมูลที่บันทึกไว้ทั้งหมดอยู่บนอุปกรณ์ของคุณ การถอนการติดตั้งแอปหรือล้างข้อมูลแอปในการตั้งค่าอุปกรณ์จะลบข้อมูลออกอย่างสมบูรณ์และถาวร ไม่มีสิ่งใดที่ต้องลบในฝั่งของเรา'],
+  ['6. ติดต่อ', `สอบถามเรื่องความเป็นส่วนตัว: ${mail}`],
+  ['7. การเปลี่ยนแปลง', 'การเปลี่ยนแปลงใด ๆ ของนโยบายนี้จะประกาศบนหน้านี้พร้อมวันที่มีผลบังคับใช้ใหม่'] ] },
+
+};
+
+const sel = document.getElementById('lang');
+for (const [code, loc] of Object.entries(L)) {
+  const o = document.createElement('option');
+  o.value = code; o.textContent = loc.name;
+  sel.appendChild(o);
+}
+
+function render(code) {
+  const loc = L[code] || L.en;
+  document.documentElement.lang = code;
+  document.documentElement.dir = loc.dir || 'ltr';
+  document.title = loc.title;
+  document.getElementById('content').innerHTML =
+    `<h1>${loc.title}</h1><p>${loc.date}</p><p>${loc.intro}</p>` +
+    loc.s.map(([h, b]) => `<h2>${h}</h2><p>${b}</p>`).join('');
+  try { localStorage.setItem('mindway.privacy.lang', code); } catch {}
+}
+
+sel.addEventListener('change', () => render(sel.value));
+
+/* 기본은 영어. 방문자가 전에 고른 언어가 있으면 그것으로 시작한다. */
+let start = 'en';
+try { const saved = localStorage.getItem('mindway.privacy.lang'); if (saved && L[saved]) start = saved; } catch {}
+sel.value = start;
+render(start);
+</script>
+
+</body>
+</html>
