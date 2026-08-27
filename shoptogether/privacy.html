@@ -18,8 +18,12 @@
   데이터는 서버와 Google Drive 에 저장된다. 공용 문안을 붙이면 '계정 없음·서버 없음'이라는
   사실과 다른 방침을 게시하게 된다. 스타일(../privacy.css)만 공유한다.
 
-  본문은 코드에서 확인한 실제 동작만 적었다. 없는 기능(예: 앱 안에서의 계정 삭제)을
-  있다고 쓰지 않는다 — 방침이 바이너리보다 많은 것을 약속하는 쪽이 더 나쁜 실수다.
+  본문은 코드에서 확인한 실제 동작만 적었다. 없는 기능을 있다고 쓰지 않는다 — 방침이
+  바이너리보다 많은 것을 약속하는 쪽이 더 나쁜 실수다.
+
+  2026-08-28: 앱·웹에 계정 삭제가 들어와 5항을 고쳤다. 예전 문안은 '이메일로 요청하면
+  30일 이내'였는데, 이제는 설정에서 즉시 지워지고 같이 쓰는 방은 남는다. 기능이 바뀌면
+  방침도 같이 바뀌어야 한다 — 반대 방향(방침이 앞서 나가는 것)만 문제인 게 아니다.
 -->
 
 <div class="langbar">
@@ -34,7 +38,7 @@
 <section data-lang="ko">
   <h1>Shop Together 개인정보처리방침</h1>
   <p class="meta">
-    <span>시행일: 2026년 8월 8일</span>
+    <span>시행일: 2026년 8월 28일</span>
     <span>앱 패키지: com.csp.shoptogether</span>
   </p>
 
@@ -94,11 +98,15 @@
         내린 사진은 즉시 열람이 차단되고 저장소 휴지통으로 이동해 30일 뒤 완전히 사라집니다.</li>
     <li><strong>방 나가기·삭제</strong> — 방에서 나가면 참여 기록이 지워집니다. 방장이 방을
         삭제하면 그 방의 품목과 대화가 함께 삭제됩니다.</li>
-    <li><strong>계정 삭제</strong> — 아래 문의 이메일로 요청하시면 계정과 이에 연결된 프로필
-        사진·메시지·참여 기록을 <strong>요청 확인 후 30일 이내</strong> 삭제합니다. 본인 확인을
-        위해 가입에 사용한 이메일 주소로 요청해 주세요.
-        <br />게스트로 이용한 경우 계정을 되찾거나 특정할 수단이 없으므로, 앱을 삭제하거나
-        기기에서 앱 데이터를 지우면 그 기기에서는 접근할 수 없게 됩니다.</li>
+    <li><strong>계정 삭제</strong> — 앱과 웹의 <strong>설정 → 계정 → 계정 삭제</strong>에서
+        직접 지울 수 있습니다. 게스트 계정도 같습니다. 삭제하면 계정 정보와 프로필 사진,
+        이용자가 쓴 메시지, 참여 기록이 <strong>즉시</strong> 지워지고 되돌릴 수 없습니다.
+        이때 프로필 사진은 휴지통을 거치지 않고 <strong>완전히 삭제</strong>됩니다.
+        <br />혼자 있던 방은 그 방의 품목과 함께 삭제됩니다. 다른 참여자가 있는 방은
+        <strong>남습니다</strong> — 그 방은 다른 이용자의 정보이기도 하기 때문입니다. 이용자가
+        담아 둔 품목도 그 방에 남되 <strong>담은 사람 표시는 지워집니다.</strong>
+        <br />앱에 로그인할 수 없어 직접 지울 수 없는 경우 아래 문의 이메일로 요청해 주세요.
+        자세한 안내는 <a href="delete-account.html">계정 및 데이터 삭제</a> 페이지에 있습니다.</li>
   </ul>
 
   <h2>6. 아동의 개인정보</h2>
@@ -116,7 +124,7 @@
 <section data-lang="en" hidden>
   <h1>Shop Together Privacy Policy</h1>
   <p class="meta">
-    <span>Effective date: August 8, 2026</span>
+    <span>Effective date: August 28, 2026</span>
     <span>App package: com.csp.shoptogether</span>
   </p>
 
@@ -178,12 +186,18 @@
         storage trash, where it is permanently deleted after 30 days.</li>
     <li><strong>Leaving or deleting a room</strong> — leaving a room removes your participation
         record. When a room's host deletes it, its items and messages are deleted with it.</li>
-    <li><strong>Account deletion</strong> — email the address below and we will delete your account
-        and the profile photos, messages, and participation records linked to it
-        <strong>within 30 days</strong> of confirming the request. Please write from the email
-        address used to sign up so we can verify it is you.
-        <br />If you used the app as a guest, there is no way to identify or recover that account;
-        uninstalling the app or clearing its data removes access from that device.</li>
+    <li><strong>Account deletion</strong> — you can delete it yourself under
+        <strong>Settings → Account → Delete account</strong>, in the app or on the web. Guest
+        accounts included. Your account details, profile photo, the messages you wrote and your
+        participation records are deleted <strong>immediately</strong> and cannot be recovered.
+        The profile photo is <strong>permanently deleted</strong> in this case rather than being
+        moved to the trash.
+        <br />A room you were alone in is deleted along with its items. A room shared with other
+        people <strong>stays</strong>, because that room is their information too. Items you added
+        stay in it, but <strong>the "added by" attribution is removed.</strong>
+        <br />If you cannot sign in and therefore cannot do this yourself, email the address below.
+        Full instructions are on the <a href="delete-account.html">Account &amp; Data Deletion</a>
+        page.</li>
   </ul>
 
   <h2>6. Children's privacy</h2>

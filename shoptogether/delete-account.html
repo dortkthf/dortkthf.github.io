@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Shop Together 계정 및 데이터 삭제</title>
+<link rel="stylesheet" href="../privacy.css" />
+</head>
+<body>
+
+<!--
+  Play Console 의 "앱 콘텐츠 → 데이터 안전 → 데이터 삭제 요청 URL" 에 넣는 페이지다.
+
+  ## 로그인을 걸지 않는 이유
+  Play 는 이 URL 을 **앱을 설치하지 않은 사람도 열 수 있어야** 한다고 요구한다. 심사자도
+  계정 없이 여기를 본다. 그래서 이 페이지는 방법을 알려주는 곳이고, 실제 삭제는 앱·웹의
+  설정에서(로그인한 상태로) 일어난다.
+
+  ## privacy.html 과 껍데기를 맞춘 이유
+  같은 폴더에 나란히 있고 같은 사람이 이어서 읽는다. 한쪽만 언어 선택이 없거나 글꼴이
+  다르면 급하게 붙인 페이지로 읽힌다. 스타일(../privacy.css)과 언어 전환 스크립트를
+  그대로 쓴다 — 단, privacy.js 는 쓰지 않는다(그 파일의 문안 전제가 이 앱과 다르다).
+
+  ## 여기 적은 내용의 출처
+  전부 코드에서 확인한 동작이다. 방·품목·대화가 각각 다르게 처리되는 것은
+  packages/backend/src/services/auth.service.ts 의 deleteAccount 에 있다.
+-->
+
+<div class="langbar">
+  <select id="lang" aria-label="Language">
+    <option value="ko">한국어</option>
+    <option value="en">English</option>
+  </select>
+</div>
+
+<main>
+<!-- ───────────────────────────── 한국어 ───────────────────────────── -->
+<section data-lang="ko">
+  <h1>Shop Together 계정 및 데이터 삭제</h1>
+  <p class="meta">
+    <span>최종 수정: 2026년 8월 28일</span>
+    <span>앱 패키지: com.csp.shoptogether</span>
+  </p>
+
+  <h2>1. 앱에서 직접 삭제하기</h2>
+  <ol>
+    <li>앱을 열고 홈(방 목록) 오른쪽 위의 <strong>톱니바퀴</strong>를 누릅니다.</li>
+    <li><strong>계정 → 계정 삭제</strong>를 누릅니다.</li>
+    <li>지워지는 것과 남는 것을 확인하고 <strong>삭제</strong>를 누릅니다.</li>
+  </ol>
+  <p>웹에서도 같습니다 —
+  <a href="https://stg-web-omega.vercel.app/settings">설정</a> → 계정 → 계정 삭제.</p>
+  <p>게스트로 이용 중인 계정도 같은 방법으로 지울 수 있습니다.</p>
+  <p><strong>삭제는 즉시 처리되고 되돌릴 수 없습니다.</strong> 지운 계정으로는 다시 로그인할
+  수 없으며, 같은 이메일로 새로 가입하면 이전 기록이 없는 새 계정이 됩니다.</p>
+
+  <h2>2. 로그인할 수 없는 경우</h2>
+  <p>기기를 바꿔 게스트 계정에 접근할 수 없는 등 앱에서 직접 지울 수 없다면 아래로 요청해
+  주세요.</p>
+  <ul>
+    <li>받는 곳: <a href="mailto:dortkthf@gmail.com">dortkthf@gmail.com</a></li>
+    <li>제목: 계정 삭제 요청</li>
+    <li>내용: 앱에서 쓰던 <strong>닉네임</strong>과 <strong>로그인에 사용한 이메일 주소</strong>
+        (게스트였다면 참여했던 방의 <strong>초대 코드</strong>)</li>
+  </ul>
+  <p>본인 확인을 위해 가입에 사용한 이메일 주소로 보내 주세요. 확인 후 처리하고 완료를
+  회신합니다.</p>
+
+  <h2>3. 무엇이 지워지나</h2>
+  <p><strong>지워지는 것</strong></p>
+  <ul>
+    <li>계정 정보 — 닉네임, 이메일 주소, 비밀번호</li>
+    <li>프로필 사진, 캐릭터·배경색 설정</li>
+    <li>이용자가 쓴 채팅 메시지</li>
+    <li>혼자 있던 방 — 그 방의 품목까지 함께</li>
+  </ul>
+  <p>프로필 사진은 이때 휴지통을 거치지 않고 <strong>완전히 삭제</strong>됩니다.</p>
+
+  <p><strong>남는 것</strong></p>
+  <ul>
+    <li>다른 참여자가 있는 방</li>
+    <li>그 방에 담아 둔 품목 — 다만 <strong>담은 사람 표시는 지워집니다</strong></li>
+  </ul>
+  <p>다른 사람이 함께 쓰는 방을 남기는 것은 <strong>그 방이 다른 이용자의 정보이기도
+  하기 때문</strong>입니다. 한 사람이 탈퇴했다고 나머지 가족의 장보기 목록이 사라지면
+  안 됩니다. 이용자가 방장이었다면 방장 역할은 남은 참여자 중 가장 먼저 들어온 사람에게
+  넘어갑니다.</p>
+
+  <h2>4. 보관 기간</h2>
+  <p>삭제가 처리되면 위 데이터는 운영 중인 데이터베이스에서 즉시 사라집니다. 법령에 따라
+  보관해야 하는 정보는 없습니다.</p>
+
+  <h2>5. 관련 문서</h2>
+  <p><a href="privacy.html">개인정보처리방침</a> — 무엇을 수집하고 어디에 저장하는지.</p>
+</section>
+
+<!-- ───────────────────────────── English ───────────────────────────── -->
+<section data-lang="en" hidden>
+  <h1>Shop Together — Account &amp; Data Deletion</h1>
+  <p class="meta">
+    <span>Last updated: August 28, 2026</span>
+    <span>App package: com.csp.shoptogether</span>
+  </p>
+
+  <h2>1. Delete it yourself in the app</h2>
+  <ol>
+    <li>Open the app and tap the <strong>gear</strong> at the top right of the home screen
+        (your room list).</li>
+    <li>Tap <strong>Account → Delete account</strong>.</li>
+    <li>Read what is deleted and what stays, then tap <strong>Delete</strong>.</li>
+  </ol>
+  <p>The web works the same way —
+  <a href="https://stg-web-omega.vercel.app/settings">Settings</a> → Account → Delete account.</p>
+  <p>Guest accounts can be deleted the same way.</p>
+  <p><strong>Deletion is immediate and cannot be undone.</strong> You cannot sign back in to a
+  deleted account, and signing up again with the same email gives you a new account with none of
+  the earlier history.</p>
+
+  <h2>2. If you cannot sign in</h2>
+  <p>If you can't reach the app — for example you changed phones and lost access to a guest
+  account — email us instead.</p>
+  <ul>
+    <li>To: <a href="mailto:dortkthf@gmail.com">dortkthf@gmail.com</a></li>
+    <li>Subject: Account deletion request</li>
+    <li>Include: the <strong>nickname</strong> you used and the <strong>email address you signed
+        in with</strong> (or, if you were a guest, the <strong>invite code</strong> of a room you
+        were in)</li>
+  </ul>
+  <p>Please write from the email address used to sign up so we can verify it is you. We delete the
+  account and reply to confirm.</p>
+
+  <h2>3. What gets deleted</h2>
+  <p><strong>Deleted</strong></p>
+  <ul>
+    <li>Account details — nickname, email address, password</li>
+    <li>Profile photo, character and background colour</li>
+    <li>Chat messages you wrote</li>
+    <li>Rooms where you were the only member — including their items</li>
+  </ul>
+  <p>In this case the profile photo is <strong>permanently deleted</strong> rather than moved to
+  the trash.</p>
+
+  <p><strong>Kept</strong></p>
+  <ul>
+    <li>Rooms shared with other people</li>
+    <li>Items you added to them — though <strong>the "added by" attribution is removed</strong></li>
+  </ul>
+  <p>Shared rooms are kept because <strong>they are other people's information too</strong>. One
+  member leaving should not empty the rest of the family's shopping list. If you were the host,
+  that role passes to the member who joined earliest.</p>
+
+  <h2>4. Retention</h2>
+  <p>Once a deletion is processed, the data above is removed from the live database immediately.
+  There is no information we are required by law to retain.</p>
+
+  <h2>5. Related</h2>
+  <p><a href="privacy.html">Privacy Policy</a> — what we collect and where it is stored.</p>
+</section>
+</main>
+
+<script>
+  // privacy.html 과 같은 동작. 브라우저 언어로 시작하고, 고른 값은 기억한다.
+  // 저장 키도 같은 'privacy-lang' 을 쓴다 — 방침에서 영어로 보던 사람이 이 페이지로
+  // 넘어왔을 때 다시 고르게 만들 이유가 없다.
+  (function () {
+    var sel = document.getElementById('lang');
+    var saved = null;
+    try { saved = localStorage.getItem('privacy-lang'); } catch (e) {}
+    var lang = saved || ((navigator.language || 'ko').toLowerCase().indexOf('ko') === 0 ? 'ko' : 'en');
+
+    function show(l) {
+      document.querySelectorAll('section[data-lang]').forEach(function (s) {
+        s.hidden = s.getAttribute('data-lang') !== l;
+      });
+      document.documentElement.lang = l;
+      sel.value = l;
+      try { localStorage.setItem('privacy-lang', l); } catch (e) {}
+    }
+    sel.addEventListener('change', function () { show(sel.value); });
+    show(lang);
+  })();
+</script>
+
+</body>
+</html>
