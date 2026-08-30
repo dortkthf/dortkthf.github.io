@@ -24,6 +24,11 @@
   2026-08-28: 앱·웹에 계정 삭제가 들어와 5항을 고쳤다. 예전 문안은 '이메일로 요청하면
   30일 이내'였는데, 이제는 설정에서 즉시 지워지고 같이 쓰는 방은 남는다. 기능이 바뀌면
   방침도 같이 바뀌어야 한다 — 반대 방향(방침이 앞서 나가는 것)만 문제인 게 아니다.
+
+  2026-08-30: 1.0.0+5 에 Firebase Crashlytics 를 넣어 비정상 종료 기록을 수집한다.
+  1항과 4항에 적었다. "앱이 죽었을 때만" 이라고 못 박은 이유는, 크래시 리포팅과 사용 행동
+  분석을 같은 것으로 오해하기 쉽기 때문이다 — Analytics 는 넣지 않았고 화면 이동이나 클릭은
+  보내지 않는다. Play 데이터 보안 양식도 같이 고쳐야 한다(배포/텍스트/앱-콘텐츠-선언.md).
 -->
 
 <div class="langbar">
@@ -38,7 +43,7 @@
 <section data-lang="ko">
   <h1>Shop Together 개인정보처리방침</h1>
   <p class="meta">
-    <span>시행일: 2026년 8월 28일</span>
+    <span>시행일: 2026년 8월 30일</span>
     <span>앱 패키지: com.csp.shoptogether</span>
   </p>
 
@@ -61,6 +66,10 @@
     <li><strong>이용자가 만든 내용</strong> — 방 제목, 품목 이름·수량·가격·메모, 채팅 메시지.</li>
     <li><strong>기기 알림 토큰</strong>* — 푸시 알림을 허용한 경우. 어느 기기로 알림을 보낼지
         가리키는 값이며, 광고나 추적에 쓰지 않습니다.</li>
+    <li><strong>비정상 종료 기록</strong> — 앱이 예기치 않게 종료되면 오류 내용과 그때의
+        기기 모델·안드로이드 버전·앱 버전이 전송됩니다. 앱을 고치는 데에만 씁니다.
+        <strong>평소 사용 기록(어느 화면을 봤는지, 무엇을 눌렀는지)은 수집하지 않습니다</strong> —
+        앱이 죽었을 때만 보냅니다.</li>
   </ul>
   <p>앱은 위치 정보, 연락처, 통화 기록, 광고 식별자를 수집하지 않습니다.
   앱에는 <strong>광고가 없고 인앱 결제도 없습니다.</strong></p>
@@ -86,6 +95,8 @@
         토큰으로 이메일과 이름을 확인합니다. 비밀번호는 당사에 전달되지 않습니다.</li>
     <li><strong>Google Drive</strong> — 프로필 사진 저장소로 사용합니다.</li>
     <li><strong>Firebase Cloud Messaging (Google)</strong> — 푸시 알림 전달.</li>
+    <li><strong>Firebase Crashlytics (Google)</strong> — 앱이 비정상 종료됐을 때 오류 기록
+        수집. 무엇이 깨졌는지 알아야 고칠 수 있어서 씁니다.</li>
     <li><strong>Railway, Vercel</strong> — 서버와 웹 호스팅.</li>
   </ul>
   <p>위 서비스의 데이터 처리는 <a href="https://policies.google.com/privacy" rel="noopener">Google
@@ -124,7 +135,7 @@
 <section data-lang="en" hidden>
   <h1>Shop Together Privacy Policy</h1>
   <p class="meta">
-    <span>Effective date: August 28, 2026</span>
+    <span>Effective date: August 30, 2026</span>
     <span>App package: com.csp.shoptogether</span>
   </p>
 
@@ -147,6 +158,10 @@
         and chat messages.</li>
     <li><strong>Device notification token</strong>* — if you allow push notifications. It identifies
         which device to notify and is not used for advertising or tracking.</li>
+    <li><strong>Crash reports</strong> — if the app closes unexpectedly, the error and the device
+        model, Android version, and app version at that moment are sent to us. We use them only to
+        fix the app. <strong>We do not track what you do in the app</strong> — nothing is sent
+        unless the app crashes.</li>
   </ul>
   <p>The app does not collect location, contacts, call logs, or advertising identifiers.
   The app contains <strong>no advertising and no in-app purchases.</strong></p>
@@ -173,6 +188,8 @@
         Google. Your Google password is never sent to us.</li>
     <li><strong>Google Drive</strong> — storage for profile photos.</li>
     <li><strong>Firebase Cloud Messaging (Google)</strong> — delivery of push notifications.</li>
+    <li><strong>Firebase Crashlytics (Google)</strong> — collects crash reports when the app
+        closes unexpectedly, so we can find out what broke and fix it.</li>
     <li><strong>Railway, Vercel</strong> — server and web hosting.</li>
   </ul>
   <p>Data handling by these services follows their own policies, such as the
