@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Fire Escape 개인정보처리방침</title>
+<link rel="stylesheet" href="../privacy.css" />
+</head>
+<body>
+
+<!--
+  ⚠ 이 페이지는 ../privacy.js 를 쓰지 않는다. 그 공용 문안은 '앱 데이터(진행 상황, 설정, 구매한 아이템)'만
+  말하고 위치 이야기가 없는데, Fire Escape 는 정밀 위치를 백그라운드에서도 쓰고(자동 기록), 걸은 길과
+  건물 입구 좌표를 기기에 남긴다. Play 의 위치 권한 정책은 방침이 그걸 밝히기를 요구한다. 스타일만 공유한다.
+
+  본문은 코드(github.com/dortkthf/fire_escape, 2026-10-28)에서 확인한 실제 동작만 적었다.
+  - 네트워크로 보내는 코드가 없다(INTERNET 권한 없음). 광고·분석·비정상 종료 수집 SDK 없음.
+  - 밖으로 나가는 길은 하나: 사용자가 [최근 기록 파일 보내기]를 눌러 공유 창에서 직접 고른 곳.
+  기능이 바뀌면 이 방침도 같이 고친다.
+-->
+
+<div class="langbar">
+  <select id="lang" aria-label="Language">
+    <option value="ko">한국어</option>
+    <option value="en">English</option>
+  </select>
+</div>
+
+<main>
+<!-- ───────────────────────────── 한국어 ───────────────────────────── -->
+<section data-lang="ko">
+  <h1>Fire Escape 개인정보처리방침</h1>
+  <p class="meta">
+    <span>시행일: 2026년 10월 28일</span>
+    <span>앱 패키지: com.fireescape.fire_escape</span>
+  </p>
+
+  <p>Fire Escape(이하 "앱")는 건물 입구에서부터 걸은 길을 기록해 두었다가, 불이 나면 그 길을 되짚어
+  출구까지 말·진동·화면으로 안내하는 앱입니다. 앱은 회원가입이 없고 당사 서버가 없으며, 아래 정보는
+  모두 <strong>이용자의 기기 안에서만</strong> 처리·저장됩니다.</p>
+
+  <h2>1. 앱이 쓰는 정보와 이유</h2>
+  <ul>
+    <li><strong>정밀 위치(GPS)와 대략적인 위치</strong> — 건물에 들어간 순간(GPS가 끊기는 때)을 알아내 기록을
+        시작하고, 저장한 건물 지도의 입구 위치를 기억하고, 그 건물 근처에 왔는지·입구로 돌아왔는지·다른 문으로
+        나왔는지를 판단하는 데 씁니다.</li>
+    <li><strong>백그라운드 위치</strong> — 이용자가 설정에서 <em>"건물에 들어가면 자동으로 기록"</em>을 켜면, 앱을
+        닫았거나 쓰지 않는 동안에도 건물 진입을 알아내기 위해 위치를 씁니다. 이때는 알림 영역에 "건물 진입 감지 대기
+        중" 알림이 늘 떠 있습니다. <em>"휴대폰을 다시 켜도 계속"</em>을 고르면 휴대폰을 다시 켠 뒤에도 같은 목적으로
+        씁니다(위치 권한을 '항상 허용'으로 바꿔야 합니다). 끄면 앱이 열려 있고 기록 중일 때만 위치를 씁니다.</li>
+    <li><strong>움직임 센서(가속도·자이로·기압·지자기)</strong> — 걸음 수, 몸이 돈 방향, 계단·엘리베이터로 오르내린 층을
+        계산해 걸은 길과 건물 지도를 만듭니다.</li>
+    <li><strong>키(설정에 입력한 값)</strong> — 보폭을 어림하는 데 씁니다.</li>
+  </ul>
+  <p>앱은 이름·이메일·전화번호·연락처·사진 등 개인 식별 정보를 수집하지 않으며, 광고·분석·비정상 종료 수집
+  도구를 쓰지 않습니다.</p>
+
+  <h2>2. 저장하는 곳과 기간</h2>
+  <ul>
+    <li><strong>건물 지도</strong>(걸은 길, 표시한 비상구·계단, 입구의 GPS 좌표) — 이용자가 지우기 전까지 기기에
+        남습니다.</li>
+    <li><strong>센서 기록 파일</strong>(위 센서 값과 기록 중 받은 GPS 좌표) — 문제를 재현하는 데 쓰려고 최근 10개만
+        기기에 남기고 그보다 오래된 것은 자동으로 지웁니다.</li>
+    <li><strong>설정</strong>(키, 자동 기록 여부) — 기기에 남습니다.</li>
+  </ul>
+  <p>앱은 이 정보를 인터넷으로 보내지 않습니다. 앱에는 인터넷 접속 권한이 없습니다.</p>
+
+  <h2>3. 이용자가 직접 보낼 때</h2>
+  <p>설정의 <em>[최근 기록 파일 보내기]</em>를 누르면 휴대폰의 공유 창이 열리고, 이용자가 고른 앱(카카오톡, 메일,
+  드라이브 등)으로 최근 기록 파일 3개가 전달됩니다. 이 파일에는 센서 값과 GPS 좌표가 들어 있습니다. 받는 곳은
+  이용자가 정하며, 이용자가 개발자에게 보내지 않는 한 개발자는 그 파일을 받지 못합니다. 전달된 뒤에는 받은 앱의
+  개인정보처리방침을 따릅니다.</p>
+
+  <h2>4. 기기의 다른 기능</h2>
+  <p>음성 안내는 휴대폰에 설치된 음성 합성(TTS) 엔진으로 정해진 안내 문장만 읽습니다. 휴대폰의 위치 서비스(GPS,
+  와이파이 기반 위치)는 운영체제가 제공하며, 그 처리는 기기 제조사·운영체제의 방침을 따릅니다.</p>
+
+  <h2>5. 지우기</h2>
+  <ul>
+    <li>건물 지도 하나: 앱의 저장된 지도 화면에서 <em>지도 지우기</em>.</li>
+    <li>전부: 앱을 삭제하거나, 휴대폰 설정에서 앱 데이터를 삭제하면 지도·기록 파일·설정이 모두 지워집니다.</li>
+    <li>백그라운드 위치 사용 중지: 앱의 설정에서 자동 기록을 끄거나, 휴대폰 설정에서 위치 권한을 바꿉니다.</li>
+  </ul>
+
+  <h2>6. 아동의 개인정보</h2>
+  <p>앱은 아동을 주 대상으로 하지 않으며, 아동의 개인정보를 고의로 수집하지 않습니다.</p>
+
+  <h2>7. 문의</h2>
+  <p>개인정보 관련 문의: <a href="mailto:dortkthf@gmail.com">dortkthf@gmail.com</a></p>
+
+  <h2>8. 방침 변경</h2>
+  <p>본 방침이 변경되는 경우 이 페이지를 통해 공지합니다.</p>
+</section>
+
+<!-- ───────────────────────────── English ───────────────────────────── -->
+<section data-lang="en" hidden>
+  <h1>Fire Escape Privacy Policy</h1>
+  <p class="meta">
+    <span>Effective date: October 28, 2026</span>
+    <span>App package: com.fireescape.fire_escape</span>
+  </p>
+
+  <p>Fire Escape ("the app") records the path you walk from a building's entrance and, if there is a fire,
+  guides you back out along that path by voice, vibration and screen. The app has no account and no server of
+  ours. Everything below is processed and stored <strong>only on your device</strong>.</p>
+
+  <h2>1. What the app uses and why</h2>
+  <ul>
+    <li><strong>Precise (GPS) and approximate location</strong> — to detect the moment you enter a building (when GPS is
+        lost) and start recording, to remember the entrance of a saved building map, and to tell whether you are near
+        that building, back at the entrance, or out through another door.</li>
+    <li><strong>Background location</strong> — if you turn on <em>"건물에 들어가면 자동으로 기록"</em> (record automatically when I enter a building) in
+        Settings, the app uses location while it is closed or not in use, to detect entering a building. A persistent
+        notification ("건물 진입 감지 대기 중", waiting to detect building entry) is shown the whole time. If you choose <em>"휴대폰을 다시 켜도 계속"</em> (keep going after
+        restart), it does the same after the phone restarts (this requires location set to "Allow all the time").
+        With auto-recording off, location is used only while the app is open and recording.</li>
+    <li><strong>Motion sensors (accelerometer, gyroscope, barometer, magnetometer)</strong> — to count steps, measure
+        turns, and detect floors climbed by stairs or elevator, building the walked path and the building map.</li>
+    <li><strong>Your height (entered in Settings)</strong> — to estimate step length.</li>
+  </ul>
+  <p>The app does not collect personally identifiable information such as your name, email, phone number, contacts or
+  photos, and it contains no advertising, analytics or crash-reporting tools.</p>
+
+  <h2>2. Where it is stored and for how long</h2>
+  <ul>
+    <li><strong>Building maps</strong> (walked paths, marked exits and stairs, the entrance's GPS coordinates) — kept on
+        the device until you delete them.</li>
+    <li><strong>Sensor log files</strong> (the sensor values above and GPS fixes received while recording) — only the 10
+        most recent are kept, for reproducing problems; older ones are deleted automatically.</li>
+    <li><strong>Settings</strong> (height, auto-recording options) — kept on the device.</li>
+  </ul>
+  <p>The app does not send this information over the internet. It has no internet permission.</p>
+
+  <h2>3. When you send it yourself</h2>
+  <p>Tapping <em>"최근 기록 파일 보내기"</em> (send recent log files) in Settings opens your phone's share sheet and passes the three most recent
+  log files to the app you choose (messaging, email, cloud storage, …). These files contain sensor values and GPS
+  coordinates. You choose the recipient; the developer receives the files only if you send them to the developer.
+  Once shared, the receiving app's privacy policy applies.</p>
+
+  <h2>4. Other device features</h2>
+  <p>Voice guidance reads fixed instruction phrases with the text-to-speech engine installed on your phone. Location
+  services (GPS, Wi-Fi based location) are provided by the operating system and governed by your device maker's and
+  operating system's policies.</p>
+
+  <h2>5. Deletion</h2>
+  <ul>
+    <li>One building map: <em>지도 지우기</em> (delete map) on the saved map screen.</li>
+    <li>Everything: uninstalling the app, or clearing its data in your phone's settings, removes all maps, log files
+        and settings.</li>
+    <li>Stopping background location: turn off auto-recording in the app's Settings, or change the location permission
+        in your phone's settings.</li>
+  </ul>
+
+  <h2>6. Children's privacy</h2>
+  <p>The app is not directed primarily at children and does not knowingly collect personal information from
+  children.</p>
+
+  <h2>7. Contact</h2>
+  <p>Privacy inquiries: <a href="mailto:dortkthf@gmail.com">dortkthf@gmail.com</a></p>
+
+  <h2>8. Changes</h2>
+  <p>Any changes to this policy will be posted on this page.</p>
+</section>
+</main>
+
+<script>
+  // 브라우저 언어로 시작하고, 고른 값은 기억한다(심사자가 영어권이면 영어로 열린다).
+  (function () {
+    var sel = document.getElementById('lang');
+    var saved = null;
+    try { saved = localStorage.getItem('privacy-lang'); } catch (e) {}
+    var lang = saved || ((navigator.language || 'ko').toLowerCase().indexOf('ko') === 0 ? 'ko' : 'en');
+
+    function show(l) {
+      document.querySelectorAll('section[data-lang]').forEach(function (s) {
+        s.hidden = s.getAttribute('data-lang') !== l;
+      });
+      document.documentElement.lang = l;
+      sel.value = l;
+      try { localStorage.setItem('privacy-lang', l); } catch (e) {}
+    }
+    sel.addEventListener('change', function () { show(sel.value); });
+    show(lang);
+  })();
+</script>
+
+</body>
+</html>
